@@ -27,7 +27,6 @@ const carouselCol2 = [
 export default function Home() {
   
   const [currentBG, setCurrentBG] = useState(0)
-  const nextBG = (currentBG + 1) % backgroundImages.length
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -36,7 +35,7 @@ export default function Home() {
 
     return () => clearInterval(timer)
   },[])
-  
+
   return (
     <div className="flex flex-col flex-1 font-sans ">
       <main className="flex flex-1 w-full flex-col sm:items-start">
