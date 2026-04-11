@@ -52,7 +52,7 @@ export default function Home() {
                 objectFit="cover"
                 priority={true}
                 className={`
-                  absolute inset-0 saturate-50 contrast-100 transition-opacity duration-1500 ease-in-out 
+                  inset-0 saturate-50 contrast-100 transition-opacity duration-1500 ease-in-out 
                   ${index === currentBG ? "opacity-100" : "opacity-0"}
                 `}
               />
@@ -102,6 +102,7 @@ export default function Home() {
                     src={src} 
                     alt={`Product Col 1 - ${index}`} 
                     fill={true}
+                    sizes="100vw"
                     className="object-cover rounded-sm relative" 
                   />
                 </div>
@@ -112,9 +113,10 @@ export default function Home() {
                 <div key={`col1-${index}`} className="relative w-full aspect-3/4 shrink-0">
                   <Image 
                     src={src} 
-                    alt={`Product Col 1 - ${index}`} 
+                    alt={`Product Col 2 - ${index}`} 
                     fill ={true}
-                    className="object-cover rounded-sm absolute" 
+                    sizes="100vw"
+                    className="object-cover rounded-sm relative" 
                   />
                 </div>
               ))}

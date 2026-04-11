@@ -15,21 +15,27 @@ export default function Navbar() {
       if (typeof window !== 'undefined') {
         const currentScrollY = window.scrollY;
 
-        if (currentScrollY > lastScrollY && currentScrollY > 50) {
-          setIsVisible(false);
-        } else if (currentScrollY < lastScrollY) {
-          setIsVisible(true);
-        }
-
         if (currentScrollY > window.innerHeight - 100) {
           setIsScrolled(true);
         } else {
           setIsScrolled(false);
         }
+        
+        const scrollTolerance = 25; // Harus scroll min 15px baru bereaksi
+        const scrollDelta = Math.abs(currentScrollY - lastScrollY);
 
-        setLastScrollY(currentScrollY);
+        if (scrollDelta >= scrollTolerance) {
+          if (currentScrollY > lastScrollY && currentScrollY > 50) {
+            setIsVisible(false);
+          } else if (currentScrollY < lastScrollY) {
+            
+            setIsVisible(true);
+          }
+        
+          setLastScrollY(currentScrollY);
+        }
       }
-    };
+    }
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
