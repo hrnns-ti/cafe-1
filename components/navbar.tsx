@@ -15,15 +15,12 @@ export default function Navbar() {
       if (typeof window !== 'undefined') {
         const currentScrollY = window.scrollY;
 
-        // A. Logika Muncul/Sembunyi (yang sudah ada)
         if (currentScrollY > lastScrollY && currentScrollY > 50) {
           setIsVisible(false);
         } else if (currentScrollY < lastScrollY) {
           setIsVisible(true);
         }
 
-        // B. Logika Perubahan Background (Threshold)
-        // Kita gunakan 80vh sebagai ambang batas agar transisinya sedikit lebih awal
         if (currentScrollY > window.innerHeight - 100) {
           setIsScrolled(true);
         } else {
@@ -40,10 +37,10 @@ export default function Navbar() {
 
   return (
     <nav className={`
-      z-50 flex text-white w-full justify-between fixed top-0 left-0
+      z-50 flex text-white duration-300 w-full justify-between fixed top-0 left-0
       transition-all ease-in-out
       ${isVisible ? "translate-y-0" : "-translate-y-full"}
-      ${isScrolled ? "bg-gray-950 backdrop-blur-md text-black duration-700" : "bg-transparent duration-700 text-white"}
+      ${isScrolled ? "bg-gray-950 backdrop-blur-md text-black" : "bg-transparent duration-700 text-white"}
     `}>
       <div className="px-12 py-6 gap-6 flex items-center"> 
         <a href="" className={`${notoSerifJP.className} hover:bg-white hover:text-black transition-all duration-500 py-1.5 px-13 border rounded-full`}>製品</a>
