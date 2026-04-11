@@ -29,12 +29,10 @@ export default function Home() {
   const [currentBG, setCurrentBG] = useState(0)
   const nextBG = (currentBG + 1) % backgroundImages.length
 
-  const [carousel, setCarousel] = useState()
-
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentBG((prevBG) => (prevBG + 1) % backgroundImages.length)
-    }, 3000)
+    }, 5000)
 
     return () => clearInterval(timer)
   },[])
@@ -53,10 +51,9 @@ export default function Home() {
                 alt={`Background ${index + 1}`} 
                 fill={true}
                 objectFit="cover"
-                priority={index === 0}
+                priority={true}
                 className={`
-                  absolute inset-0 saturate-50  transition-opacity duration-1000 ease-in-out 
-                  ${index === nextBG ? "opacity-100" : "opacity-0"}
+                  absolute inset-0 saturate-50 contrast-100 transition-opacity duration-1500 ease-in-out 
                   ${index === currentBG ? "opacity-100" : "opacity-0"}
                 `}
               />
