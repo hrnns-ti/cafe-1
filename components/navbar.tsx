@@ -8,41 +8,42 @@ export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   
+  const [isScrolled, setIsScrolled] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
-      // Pastikan kode berjalan di sisi client (browser)
       if (typeof window !== 'undefined') {
         const currentScrollY = window.scrollY;
 
-        // Logika: Jika scroll ke bawah DAN sudah melewati 50px dari atas
+        // A. Logika Muncul/Sembunyi (yang sudah ada)
         if (currentScrollY > lastScrollY && currentScrollY > 50) {
-          setIsVisible(false); // Sembunyikan Navbar
-        } 
-        // Logika: Jika scroll ke atas
-        else if (currentScrollY < lastScrollY) {
-          setIsVisible(true);  // Munculkan Navbar
+          setIsVisible(false);
+        } else if (currentScrollY < lastScrollY) {
+          setIsVisible(true);
         }
 
-        // Simpan posisi scroll terakhir untuk dibandingkan di scroll berikutnya
+        // B. Logika Perubahan Background (Threshold)
+        // Kita gunakan 80vh sebagai ambang batas agar transisinya sedikit lebih awal
+        if (currentScrollY > window.innerHeight - 100) {
+          setIsScrolled(true);
+        } else {
+          setIsScrolled(false);
+        }
+
         setLastScrollY(currentScrollY);
       }
-    }
-
-    // Tambahkan event listener saat komponen dimuat
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup: Hapus event listener saat komponen dilepas (best practice!)
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
     };
-  },[lastScrollY])
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
     <nav className={`
-      my-4 z-50 flex text-white w-full justify-between fixed top-0 left-0
-      transition-transform duration-500 ease-in-out
+      z-50 flex text-white w-full justify-between fixed top-0 left-0
+      transition-all ease-in-out
       ${isVisible ? "translate-y-0" : "-translate-y-full"}
-      ${lastScrollY < 0 ? "mix-blend-normal" : "mix-blend-difference" }
+      ${isScrolled ? "bg-gray-950 backdrop-blur-md text-black duration-700" : "bg-transparent duration-700 text-white"}
     `}>
       <div className="px-12 py-6 gap-6 flex items-center"> 
         <a href="" className={`${notoSerifJP.className} hover:bg-white hover:text-black transition-all duration-500 py-1.5 px-13 border rounded-full`}>製品</a>
