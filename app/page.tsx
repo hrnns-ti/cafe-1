@@ -25,7 +25,7 @@ const carouselCol2 = [
 ]
 
 const rowImage = [
-  
+
 ]
 
 export default function Home() {
@@ -161,12 +161,12 @@ export default function Home() {
             <h1 className={`text-[20rem] rotate-90 absolute top-10 -left-57 font-bold opacity-35 select-none ${notoSerifJP.className}`}>場所</h1>
             <div className="flex flex-col justify-between py-8 px-4 gap-92">
               <p className={`text-right ${notoSerifJP.className}`}>街の中心にある静かな一角。上質なコーヒーを一杯楽しむ、心を豊かに<br />する空間。私たちの扉はいつでもあなたに開かれています。</p>
-              <div className="flex flex-col items-end">
+              <div className="flex flex-col items-end gap-4">
                 <p className={`flex ${notoSerifJP.className} items-center font-black`}>おはよう 02  
                   <span className="border-b-2 border-black h-0 mx-1 w-18"/> 03
                 </p>
-                <h1>RIVARNO JOURNAL</h1>
-                <p className="text-right w-2xl">一杯ごとに、献身と細部へのこだわりの物語が語られます。私たちは現代的な抽出技術と厳選したコーヒー豆を組み合わせ、訪れるたびに味わいと空間の芸術的な雰囲気の両面で心に残る印象を残します</p>
+                <h1 className="text-4xl font-bold">RIVARNO JOURNAL</h1>
+                <p className={`text-right w-2xl font-medium ${notoSerifJP.className}`}>一杯ごとに、献身と細部へのこだわりの物語が語られます。私たちは現代的な抽出技術と厳選したコーヒー豆を組み合わせ、訪れるたびに味わいと空間の芸術的な雰囲気の両面で心に残る印象を残します</p>
               </div>
             </div>
           </div>
