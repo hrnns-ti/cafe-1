@@ -24,6 +24,10 @@ const carouselCol2 = [
   '/section-2/carousel-6.jpg',
 ]
 
+const rowImage = [
+  
+]
+
 export default function Home() {
   
   const [currentBG, setCurrentBG] = useState(0)
@@ -102,7 +106,7 @@ export default function Home() {
                     src={src} 
                     alt={`Product Col 1 - ${index}`} 
                     fill={true}
-                    sizes="100vw"
+                    sizes="full"
                     className="object-cover rounded-sm relative" 
                   />
                 </div>
@@ -115,7 +119,7 @@ export default function Home() {
                     src={src} 
                     alt={`Product Col 2 - ${index}`} 
                     fill ={true}
-                    sizes="100vw"
+                    sizes="full"
                     className="object-cover rounded-sm relative" 
                   />
                 </div>
@@ -124,8 +128,55 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full min-h-screen bg-black">
+        {/* section 3 */}
+        <section className="relative w-full h-[48vh] flex justify-center z-20 items-center">
+          <Image 
+            src={'/section-3/background.jpg'}
+            alt="Background"
+            fill={true}
+            priority={true}
 
+            className="saturate-80 object-cover"
+          />
+          <div className="absolute inset-0 bg-gray-900/60 w-full h-full"></div>
+          <div className="relative flex flex-row gap-18 w-fit items-center justify-center">
+            <Image 
+              src={'/section-3/content.jpg'}
+              width={300}
+              height={300}
+              alt="content"
+
+              className=""
+            />
+            <div className={`flex flex-col gap-6 ${notoSerifJP.className} text-white font-light text-xl w-3/8 bg-black/5`}>
+              <p className="">日本のカフェにまつわる興味深い事実</p>
+              <p className="">明るい挨拶「いらっしゃいませ」は、日本独特のおもてなしの伝統で、カフェに入る際に客は形式的な言葉で返答する必要はなく、にっこりとした笑顔や軽い会釈をするだけで礼を示す、というものです。</p>
+            </div>
+          </div>
+        </section>
+
+        {/* section 4 */}
+        <section className="relative w-full h-3/5">
+          <div className="h-full w-full">
+            <h1 className={`text-[20rem] rotate-90 absolute top-10 -left-57 font-bold opacity-35 select-none ${notoSerifJP.className}`}>場所</h1>
+            <div className="flex flex-col justify-between py-8 px-4 gap-92">
+              <p className={`text-right ${notoSerifJP.className}`}>街の中心にある静かな一角。上質なコーヒーを一杯楽しむ、心を豊かに<br />する空間。私たちの扉はいつでもあなたに開かれています。</p>
+              <div className="flex flex-col items-end">
+                <p className={`flex ${notoSerifJP.className} items-center font-black`}>おはよう 02  
+                  <span className="border-b-2 border-black h-0 mx-1 w-18"/> 03
+                </p>
+                <h1>RIVARNO JOURNAL</h1>
+                <p className="text-right w-2xl">一杯ごとに、献身と細部へのこだわりの物語が語られます。私たちは現代的な抽出技術と厳選したコーヒー豆を組み合わせ、訪れるたびに味わいと空間の芸術的な雰囲気の両面で心に残る印象を残します</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* section 5 */}
+        <section className="relative w-full h-2/5">
+          <div className="bg-black">
+            
+          </div>
         </section>
       </main>
     </div>
