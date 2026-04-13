@@ -24,13 +24,27 @@ const carouselCol2 = [
   '/section-2/carousel-6.jpg',
 ]
 
-const rowImage = [
+const rowImage1 = [
+  '/section-5/row-1.jpg',
+  '/section-5/row-2.jpg',
+  '/section-5/row-3.jpg',
+  '/section-5/row-4.jpg',
+  '/section-5/row-5.jpg',
+]
 
+const rowImage2 = [
+  '/section-5/row-6.jpg',
+  '/section-5/row-7.jpg',
+  '/section-5/row-8.jpg',
+  '/section-5/row-9.jpg',
+  '/section-5/row-10.jpg',
 ]
 
 export default function Home() {
   
   const [currentBG, setCurrentBG] = useState(0)
+
+  const rows = [rowImage1, rowImage2]
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -138,7 +152,7 @@ export default function Home() {
 
             className="saturate-80 object-cover"
           />
-          <div className="absolute inset-0 bg-gray-900/60 w-full h-full"></div>
+          <div className="absolute inset-0 bg-black/70 w-full h-full"></div>
           <div className="relative flex flex-row gap-18 w-fit items-center justify-center">
             <Image 
               src={'/section-3/content.jpg'}
@@ -156,7 +170,7 @@ export default function Home() {
         </section>
 
         {/* section 4 */}
-        <section className="relative w-full h-3/5">
+        <section className="relative w-full h-4/7">
           <div className="h-full w-full">
             <h1 className={`text-[20rem] rotate-90 absolute top-10 -left-57 font-bold opacity-35 select-none ${notoSerifJP.className}`}>場所</h1>
             <div className="flex flex-col justify-between py-8 px-4 gap-92">
@@ -173,10 +187,22 @@ export default function Home() {
         </section>
 
         {/* section 5 */}
-        <section className="relative w-full h-2/5">
-          <div className="bg-black">
-            
-          </div>
+        <section className="relative w-full h-3/7 overflow-hidden">
+          {rows.map((row, rowIndex) => (
+            <div key={rowIndex} className={`${rowIndex %2 !== 0 ? '-ml-35' : ''} bg-black flex flex-row w-full h-full`}>
+              {[...row, ...row].map((src, imgIndex) => (
+                <Image
+                  key={imgIndex}
+                  src={src}
+                  alt={`Image ${rowIndex}-${imgIndex}`}
+                  width={200}
+                  height={100}
+
+                  className="object-cover w-70 h-50 shrink-0"
+                />
+              ))}
+            </div>
+          ))}
         </section>
       </main>
     </div>
