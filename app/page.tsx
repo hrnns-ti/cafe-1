@@ -5,6 +5,7 @@ import { inter, notoSerifJP, notoSans } from "@/fonts/fonts";
 import { useState, useEffect } from "react";
 
 import Navbar from "@/components/navbar";
+import { HeroBackground } from "@/components/background";
 import MasonrySection from "@/components/MasonrySection";
 import { shuffleArray } from "@/lib/utils";
 
@@ -71,7 +72,8 @@ export default function Home() {
         <Navbar />
         {/* section 1 */}
         <section className="relative w-full min-h-screen overflow-hidden">
-          <div className="absolute inset-0 -z-10">
+          <HeroBackground images={backgroundImages} />
+          {/* <div className="absolute inset-0 -z-10">
             {backgroundImages.map((src, index) => (
               <Image
                 key={src}
@@ -87,7 +89,7 @@ export default function Home() {
                 `}
               />
             ))}
-          </div>
+          </div> */}
 
           <div className="relative flex flex-col px-12 py-36 select-none z-10 text-white w-full">
             <p className={`${inter.className} py-3 text-xs tracking-[6]`}>VOL. XXIV —— TOKYO EDITION</p>

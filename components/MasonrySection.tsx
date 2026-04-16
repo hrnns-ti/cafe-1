@@ -24,7 +24,7 @@ export default function MasonrySection({ images }: { images: string[] }) {
             className="w-full h-auto object-cover object-center"
             width={500}
             height={500}
-            loading="lazy"
+            loading="eager"
             quality={75}
           />
         </div>
