@@ -78,8 +78,7 @@ export default function Home() {
                 src={src}
                 alt={`Background ${index + 1}`} 
                 fill={true}
-                objectFit="cover"
-                priority={true}
+                preload={true}
                 className={`
                   inset-0 saturate-50 contrast-100 transition-opacity duration-1500 ease-in-out 
                   ${index === currentBG ? "opacity-100" : "opacity-0"}

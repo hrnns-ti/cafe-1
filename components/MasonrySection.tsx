@@ -1,5 +1,6 @@
 "use client";
 import Masonry from "react-masonry-css";
+import Image from "next/image";
 
 export default function MasonrySection({ images }: { images: string[] }) {
   const breakpointColumnsObj = {
@@ -17,10 +18,14 @@ export default function MasonrySection({ images }: { images: string[] }) {
     >
       {images.map((src, index) => (
         <div key={index} className="mb-2">
-          <img
+          <Image
             src={src}
             alt={`Gallery ${index}`}
             className="w-full h-auto object-cover object-center"
+            width={500}
+            height={500}
+            loading="lazy"
+            quality={75}
           />
         </div>
       ))}
