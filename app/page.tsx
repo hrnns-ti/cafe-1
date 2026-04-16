@@ -78,9 +78,10 @@ export default function Home() {
                 src={src}
                 alt={`Background ${index + 1}`} 
                 fill={true}
-                preload={true}
+                priority={true}
+                quality={75}
                 className={`
-                  inset-0 saturate-50 contrast-100 transition-opacity duration-1500 ease-in-out 
+                  inset-0 saturate-50 object-cover contrast-100 transition-opacity duration-1500 ease-in-out 
                   ${index === currentBG ? "opacity-100" : "opacity-0"}
                 `}
               />
@@ -227,7 +228,7 @@ export default function Home() {
                 className="w-2xl"
               />
             </div>
-            <div className="flex flex-col justify-between py-12 w-1/2 h-full">
+            <div className="flex flex-col justify-between py-6 w-1/2 h-full">
               <div className="text-right">
                 <h1 className={`text-[7rem] font-bold ${notoSerifJP.className}`}>バリスタ</h1>
                 <h1 className={`font-semibold ${notoSerifJP.className}`}>特別感を与え、あたかも訪問者を献身に満ちた生産の厨房へ案<br/>内するかのようだ。</h1>
