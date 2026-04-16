@@ -204,6 +204,34 @@ export default function Home() {
             </div>
           ))}
         </section>
+
+        {/* section 6 */}
+        <section className="w-full h-screen justify-center bg-red">
+          <div className="px-18 py-12 gap-12 w-full h-full flex flex-row justify-between items-center">
+            <div className="">
+              <Image
+                src={'/section-6/image.png'}
+                alt="Picture"
+                width={500}
+                height={600}
+                className="w-2xl"
+              />
+            </div>
+            <div className="flex flex-col justify-between py-12 w-1/2 h-full">
+              <div className="text-right">
+                <h1 className={`text-[7rem] font-bold ${notoSerifJP.className}`}>バリスタ</h1>
+                <h1 className={`font-semibold ${notoSerifJP.className}`}>特別感を与え、あたかも訪問者を献身に満ちた生産の厨房へ案<br/>内するかのようだ。</h1>
+              </div>
+              <div className="text-left">
+                <p className={`flex ${notoSerifJP.className} items-center font-bold`}>おはよう 03  
+                  <span className="border-b-2 border-black h-0 mx-1 w-18"/> 03
+                </p>
+                <h1 className={`text-4xl py-2 font-semibold tracking-wider ${notoSans.className}`}>THE ESSENCE IN EVERY BREW</h1>
+                <p className={`text-sm font-medium ${notoSerifJP.className}`}>訪れるたびに味わいに命を吹き込む人々に会ってください。細やかな技と揺る<br/>ぎない献身によって、一粒一粒のコーヒー豆が丁寧に扱われ、あなたの日々に<br/>寄り添う完璧な風味の調和をつくります。</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );
