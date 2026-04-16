@@ -5,6 +5,8 @@ import { inter, notoSerifJP, notoSans } from "@/fonts/fonts";
 import { useState, useEffect } from "react";
 
 import Navbar from "@/components/navbar";
+import MasonrySection from "@/components/MasonrySection";
+import { shuffleArray } from "@/lib/utils";
 
 const backgroundImages = [
   '/section-1/1.png',
@@ -40,19 +42,28 @@ const rowImage2 = [
   '/section-5/row-10.jpg',
 ]
 
+
+
 export default function Home() {
   
   const [currentBG, setCurrentBG] = useState(0)
-
-  const rows = [rowImage1, rowImage2]
+  const [shuffledImages, setShuffledImages] = useState<string[]>([]);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentBG((prevBG) => (prevBG + 1) % backgroundImages.length)
-    }, 5000)
+    const images = [...rowImage1, ...backgroundImages, ...rowImage2, ...carouselCol1, ...rowImage2, ...carouselCol2, ...carouselCol1, ...rowImage2, ...carouselCol2, ...rowImage1, ...backgroundImages, ...rowImage2, ... carouselCol1];
+    setShuffledImages(shuffleArray(images));
 
-    return () => clearInterval(timer)
-  },[])
+    
+    const timer = setInterval(() => {
+      setCurrentBG((prevBG) => (prevBG + 1) % backgroundImages.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  if (shuffledImages.length === 0) return null;
+
+  const rows = [rowImage1, rowImage2]
 
   return (
     <div className="flex flex-col flex-1 font-sans ">
@@ -230,6 +241,53 @@ export default function Home() {
                 <p className={`text-sm font-medium ${notoSerifJP.className}`}>訪れるたびに味わいに命を吹き込む人々に会ってください。細やかな技と揺る<br/>ぎない献身によって、一粒一粒のコーヒー豆が丁寧に扱われ、あなたの日々に<br/>寄り添う完璧な風味の調和をつくります。</p>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* section 7 */}
+        <section className="w-full h-screen">
+          <div className="relative w-full h-1/3 ">
+            <Image
+              src={'/section-7/background-1.jpg'}
+              fill={true}
+              alt="Background 1"
+
+              className="object-cover object-[25%_25%] -z-10 absolute"
+            />
+            <div className={`${notoSerifJP.className} bg-gray-200/80 text-black font-black gap-2 flex flex-col justify-center items-center w-full h-full`}>
+              <h1 className="text-2xl py-2 ">ぜひお越しください</h1>
+              <p>街の中心にある私たちの静かな一角への最短ルートを見つけてください</p>
+              <p>毎日あなたをお迎えする準備ができています</p>
+            </div>
+          </div>
+          
+          <div className="relative w-full h-1/3 z-10 bg-white">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5936.419967884473!2d139.75431411946872!3d35.684532843809706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c0d02d8064d%3A0xd11a5f0b379e6db7!2sImperial%20Palace!5e0!3m2!1sen!2sid!4v1776327756397!5m2!1sen!2sid" 
+              className=" w-full h-full "  
+              allowFullScreen={true} 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+            >
+
+              </iframe>
+          </div>
+          
+          <div className="relative w-full h-1/3 overflow-hidden flex items-center justify-center"> 
+            <div className={`${notoSerifJP.className} z-10 text-white flex flex-col justify-center items-center absolute`}>
+              <h1 className="text-xl py-2 font-black">テーブルを予約する</h1>
+              <p>お気に入りの場所がいつでも利用できるようにしましょう</p>
+              <p>ビジネスミーティングでも、大切な人とのくつろぎの時間でも</p>
+              <p>私たちはあなたを迎える完璧な空間をご用意しています。</p>
+              <a href="" className="my-4 py-1 px-14 bg-white text-black rounded-full hover:bg-black border border-white hover:text-white transition-all duration-500">予約</a>
+            </div>
+            
+            <div className="absolute inset-0 bg-black/70 pointer-events-none"></div>
+            
+            <div className="w-full -z-10">
+              <MasonrySection images={shuffledImages} />
+            </div>
+
           </div>
         </section>
       </main>
