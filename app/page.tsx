@@ -79,7 +79,8 @@ export default function Home() {
                 alt={`Background ${index + 1}`} 
                 fill={true}
                 priority={true}
-                quality={75}
+                fetchPriority="high"
+                quality={70}
                 className={`
                   inset-0 saturate-50 object-cover contrast-100 transition-opacity duration-1500 ease-in-out 
                   ${index === currentBG ? "opacity-100" : "opacity-0"}
@@ -226,6 +227,7 @@ export default function Home() {
                 width={500}
                 height={600}
                 className="w-2xl"
+                loading="eager"
               />
             </div>
             <div className="flex flex-col justify-between py-6 w-1/2 h-full">
@@ -279,7 +281,7 @@ export default function Home() {
               <p>お気に入りの場所がいつでも利用できるようにしましょう</p>
               <p>ビジネスミーティングでも、大切な人とのくつろぎの時間でも</p>
               <p>私たちはあなたを迎える完璧な空間をご用意しています。</p>
-              <a href="" className="my-4 py-1 px-14 bg-white text-black rounded-full hover:bg-black border border-white hover:text-white transition-all duration-500">予約</a>
+              <a href="" className="my-4 py-1 px-14 bg-white text-black rounded-full hover:bg-transparent border border-white hover:text-white transition-all duration-500">予約</a>
             </div>
             
             <div className="absolute inset-0 bg-black/70 pointer-events-none"></div>
