@@ -51,6 +51,10 @@ export default function Home() {
   const [shuffledImages, setShuffledImages] = useState<string[]>([]);
 
   useEffect(() => {
+     (async () => {
+      const LocomotiveScroll = (await import('locomotive-scroll')).default;
+      const locomotiveScroll = new LocomotiveScroll();
+    })();
     const images = [...rowImage1, ...backgroundImages, ...rowImage2, ...carouselCol1, ...rowImage2, ...carouselCol2, ...carouselCol1, ...rowImage2, ...carouselCol2, ...rowImage1, ...backgroundImages, ...rowImage2, ... carouselCol1];
     setShuffledImages(shuffleArray(images));
 
