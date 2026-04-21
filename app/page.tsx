@@ -177,6 +177,7 @@ export default function Home() {
               width={300}
               height={300}
               alt="content"
+              priority={true}
 
               className=""
             />
@@ -215,6 +216,7 @@ export default function Home() {
                   alt={`Image ${rowIndex}-${imgIndex}`}
                   width={200}
                   height={100}
+                  priority={true}
 
                   className="object-cover w-70 h-50 shrink-0"
                 />
@@ -233,6 +235,7 @@ export default function Home() {
                 width={500}
                 height={600}
                 className="w-2xl"
+                priority={true}
                 loading="eager"
               />
             </div>
